@@ -78,7 +78,7 @@ uint8_t *unidad
 // ?*? this is the universal selector of CSS. As the name says Universal Selector, 
 // it selects each and every element present inside your file.
 
-uint8_t tabla(uint8_t valor);
+uint8_t tabla(uint8_t value_traduccion);
 /*------------------------------------------------------------------------------
  * INTERRUPCIONES 
  ------------------------------------------------------------------------------*/
@@ -239,9 +239,9 @@ void divisor(uint8_t counter, uint8_t *centena, uint8_t *decena, uint8_t *unidad
  * TABLA
  ------------------------------------------------------------------------------*/
 // TRADUZCO VALORES DEL 0 AL 9, BINARIO --> DECIMAL
-uint8_t tabla(uint8_t valor)    
+uint8_t tabla(uint8_t value_traduccion)    
 {
-    switch(valor)               // EN MI DIVISION, DEFINÍ PARA MI TABLA, UN 'VALOR'. DEPENDIENDO ESE VALOR LO BUSCO EN MI 'TABLA'.
+    switch(value_traduccion)               // EN MI DIVISION, DEFINÍ PARA MI TABLA, UN 'value_traduccion'. DEPENDIENDO ESE VALOR LO BUSCO EN MI 'TABLA'.
     {
         case 0:
             return 0b00111111;
