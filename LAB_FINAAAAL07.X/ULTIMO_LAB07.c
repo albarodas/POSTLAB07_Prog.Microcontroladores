@@ -42,8 +42,8 @@
  ------------------------------------------------------------------------------*/
 // BANCO DE VARIABLES PARA: CONTADOR DE BOTONES, EN PORTA.
 
-uint8_t counter;                    // Variable contadora 
-uint8_t states_transistores;                 // Determina el estado de los transistores
+uint8_t counter;                    // VARIABLE PARA CONTADOR
+uint8_t states_transistores;        // VARIABLE PARA ESTADOS DE TRANSITORES (3 TRANSISTORES)
 
 // BANCO DE VARIABLES PARA: GUARDAR VALORES 'UNIDAD', 'DECENA', 'CENTENA'
 
