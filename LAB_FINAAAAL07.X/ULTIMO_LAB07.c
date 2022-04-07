@@ -66,7 +66,7 @@ void config_timer0(void);
 void config_clk(void);
 void config_pullups(void);
 void config_interrupciones(void);
-void divisor
+void divide
 (
 uint8_t counter,                        
 uint8_t *centena, 
@@ -78,7 +78,7 @@ uint8_t *unidad
 // ?*? this is the universal selector of CSS. As the name says Universal Selector, 
 // it selects each and every element present inside your file.
 
-uint8_t tabla(uint8_t value_traduccion);
+uint8_t values(uint8_t value_traduccion);
 /*------------------------------------------------------------------------------
  * INTERRUPCIONES 
  ------------------------------------------------------------------------------*/
@@ -150,13 +150,13 @@ void main(void)
         // DEFINIMOS LA DIVISION PARA PODER MOSTRAR LA INFORMACION EN EL CONTADOR DE DISPLAYS, COMO LO HACIAMOS EN ASSEMBLER.
         
         // PASO 1: DIVIDIMOS POR DIGITOS, EL VALOR QUE SE ENCUENTRE EN EL CONTADOR.
-        divisor(counter, &centena_variable, &decena_variable, &unidades_variable);
+        divide(counter, &centena_variable, &decena_variable, &unidades_variable);
         
         // HACEMOS LA TRADUCCIÓN DE BINARIO --> DECIMAL, USANDO LA TABLA DE VALORES.
         
-        unidades_display = tabla(unidades_variable);            // LE DOY UN NUEVO VALOR A 'unidades_display' = VALOR DE UNIDADES TRADUCIDO POR TABLA.
-        decenas_display = tabla(decena_variable);               // LE DOY UN NUEVO VALOR A 'decenas_display' = VALOR DE DECENAS TRADUCIDO POR TABLA.
-        centenas_display = tabla(centena_variable);             // LE DOY UN NUEVO VALOR A 'centenas_display' = VALOR DE CENTENAS TRADUCIDO POR TABLA.
+        unidades_display = values(unidades_variable);            // LE DOY UN NUEVO VALOR A 'unidades_display' = VALOR DE UNIDADES TRADUCIDO POR TABLA.
+        decenas_display = values(decena_variable);               // LE DOY UN NUEVO VALOR A 'decenas_display' = VALOR DE DECENAS TRADUCIDO POR TABLA.
+        centenas_display = values(centena_variable);             // LE DOY UN NUEVO VALOR A 'centenas_display' = VALOR DE CENTENAS TRADUCIDO POR TABLA.
         
         PORTC = centenas_display;
         PORTD = 0b1;
@@ -225,7 +225,7 @@ void config_interrupciones(void)           // CONFIGURO LAS INTERRUPCIONES
  ------------------------------------------------------------------------------*/
 // DIVISION:
 
-void divisor(uint8_t counter, uint8_t *centena, uint8_t *decena, uint8_t *unidad)
+void divide(uint8_t counter, uint8_t *centena, uint8_t *decena, uint8_t *unidad)
 {
     uint8_t variable_division;            // DEFINO VARIABLE PARA DIVIDIR.
     *centena = counter / 100;             // '100' --> CENTENAS, LO DIVIDO DENTRO DE ESA MAGNITUD.
@@ -239,9 +239,9 @@ void divisor(uint8_t counter, uint8_t *centena, uint8_t *decena, uint8_t *unidad
  * TABLA
  ------------------------------------------------------------------------------*/
 // TRADUZCO VALORES DEL 0 AL 9, BINARIO --> DECIMAL
-uint8_t tabla(uint8_t value_traduccion)    
+uint8_t values(uint8_t value_traduccion)    
 {
-    switch(value_traduccion)               // EN MI DIVISION, DEFINÍ PARA MI TABLA, UN 'value_traduccion'. DEPENDIENDO ESE VALOR LO BUSCO EN MI 'TABLA'.
+    switch(value_traduccion)               // EN MI DIVISION, DEFINÍ PARA MI TABLA, UN 'value_traduccionñ'. DEPENDIENDO ESE VALOR LO BUSCO EN MI 'TABLA'.
     {
         case 0:
             return 0b00111111;
